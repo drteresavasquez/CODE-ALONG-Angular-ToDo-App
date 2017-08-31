@@ -1,5 +1,4 @@
-{
-    "items":{       
+{       
        "item0":{
           "task": "mow the lawn",
           "isCompleted": true,
@@ -31,4 +30,3 @@
           "uid":"d414cde4-f149-4a8d-99ef-4589767fa94d"
         }
     }
-}

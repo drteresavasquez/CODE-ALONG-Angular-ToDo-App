@@ -38,5 +38,5 @@ app.factory("userFactory", function($q, $http){
     const isAuthenticated = function(){
 
     };
-
+return {getCurrentUser, isAuthenticated, register, logOut, logIn, loginGoogle};
 });
