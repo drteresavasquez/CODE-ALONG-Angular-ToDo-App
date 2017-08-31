@@ -10,7 +10,7 @@ app.controller("detailTaskCtrl", function($scope){
 
     const showTask = function(){
 
-    }
+    };
 
 
 });

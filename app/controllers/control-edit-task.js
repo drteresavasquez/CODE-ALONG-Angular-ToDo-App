@@ -10,11 +10,11 @@ app.controller("editTaskCtrl", function($scope, todoFactory){
 
     const showEditTask = function(){
 
-    }
+    };
 
     const submitTask = function(){
 
-    }
+    };
 
 
 

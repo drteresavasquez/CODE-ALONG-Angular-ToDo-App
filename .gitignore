@@ -1,1 +1,5 @@
 app/values
+css/
+lib/node_modules/*
+lib/.sass-cache/*
+.DS_Store
