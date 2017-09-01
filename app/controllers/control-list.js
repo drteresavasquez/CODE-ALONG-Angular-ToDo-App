@@ -1,5 +1,4 @@
 "use strict";
-
 /*
 
     handle data and functionality needed in list.html
@@ -7,27 +6,37 @@
 
  */
 
- //this is similar to the require statments, but now called INJECT...
-app.controller("listCtrl", function($scope, todoFactory, userFactory){
+//this is similar to the require statments, but now called INJECT...
+app.controller("listCtrl", function ($scope, todoFactory, userFactory) {
 
     $scope.tasks = [];
 
-    const showAllTasks = function(){
+    const showAllTasks = function () {
         todoFactory.getAllTasks()
-        .then((tasks)=>{
-            console.log("showAllTasks", tasks);
-            $scope.tasks = tasks;
-        });
+            .then((tasks) => {
+                console.log("showAllTasks", tasks);
+                $scope.tasks = tasks;
+            });
     };
 
-    
-    const deleteTask = function(){
-
+    $scope.deleteTask = function (id) {
+        todoFactory.deleteTask(id)
+            .then(() => {
+                showAllTasks();
+            });
     };
-
-    
-    const toggleDoneTask = function(){
-
+    //TODO fix this toggle happens to quickly
+    $scope.toggleDoneTask = function (obj) {
+        console.log("toggleDoneTask", obj);
+        let status = obj.isCompleted ? true : false;
+        let tempObj = {
+            isCompleted: status
+        };
+        todoFactory.editTask(obj.id, tempObj)
+            .then(() => {
+                console.log("then is updated");
+                showAllTasks();
+            });
     };
     showAllTasks();
 
