@@ -7,12 +7,15 @@
  */
 
 //this is similar to the require statments, but now called INJECT...
-app.controller("listCtrl", function ($scope, todoFactory, userFactory) {
+app.controller("listCtrl", function ($scope, todoFactory, userFactory, filterFactory, $rootScope) {
 
     $scope.tasks = [];
+    let user = userFactory.getCurrentUser();
+    $rootScope.showSearch = true;
+    $scope.searchText = filterFactory;
 
     const showAllTasks = function () {
-        todoFactory.getAllTasks()
+        todoFactory.getAllTasks(user)
             .then((tasks) => {
                 console.log("showAllTasks", tasks);
                 $scope.tasks = tasks;

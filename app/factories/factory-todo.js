@@ -7,12 +7,13 @@
 */
 
 //remember $q is angular's promise
+
 app.factory("todoFactory", function ($q, $http, FBCreds) {
 
-    const getAllTasks = function () {
+    const getAllTasks = function (user) {
         let tasks = [];
         return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/items.json`)
+            $http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
                 .then((itemObject) => {
                     let itemCollection = itemObject.data;
                     console.log("itemCollection", itemCollection);

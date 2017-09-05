@@ -7,10 +7,11 @@
 
  */
 
-app.controller("addTaskCtrl", function ($scope, todoFactory, $location) {
+app.controller("addTaskCtrl", function ($scope, todoFactory, $location, userFactory) {
 
     $scope.title = "New Task";
     $scope.submitButtonText = "Add New Task";
+    let user = userFactory.getCurrentUser();
 
     $scope.task = {
         assignedTo: "",
@@ -19,7 +20,8 @@ app.controller("addTaskCtrl", function ($scope, todoFactory, $location) {
         urgency: "",
         task: "",
         inCompleted: false,
-        location: ""
+        location: "",
+        uid: user
     };
 
     $scope.submitTask = function () {

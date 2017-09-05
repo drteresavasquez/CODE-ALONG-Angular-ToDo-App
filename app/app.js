@@ -61,3 +61,9 @@ app.run(($location, FBCreds) => {
     };
     firebase.initializeApp(authConfig);
 });
+
+//when app first runs setting search showing to false
+app.run(function($rootScope){
+    $rootScope.showSearch = false;
+});
+
